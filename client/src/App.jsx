@@ -1,41 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import MainLayout from './layouts/MainLayout';
+import AppRouter from "./routes/AppRouter";
 
 function App() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3001/api/productos')
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(err => console.error("Error al obtener los productos: ", err));
-  }, []);
-
-  return (
-    <MainLayout>
-      <section className="text-center mb-12 mt-8">
-        <h2 className="text-4xl font-extrabold text-indigo-950 mb-4">Las Mejores Bebidas Espirituosas</h2>
-        <p className="text-lg text-indigo-900/70">Descubrí nuestra selección exclusiva para tus momentos especiales.</p>
-      </section>
-
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-12">
-        {products.map(product => (
-          <div key={product.id} className="bg-white rounded-lg shadow-sm border border-indigo-100 overflow-hidden hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="h-48 bg-indigo-50 flex items-center justify-center border-b border-indigo-100">
-              <span className="text-indigo-300 font-medium">Imagen de {product.categoria}</span>
-            </div>
-            <div className="p-5">
-              <h3 className="text-xl font-bold text-indigo-950 mb-2">{product.nombre}</h3>
-              <p className="text-violet-600 font-black text-xl mb-4">${product.precio}</p>
-              <button className="w-full bg-indigo-900 text-white font-semibold py-2.5 rounded-md hover:bg-violet-600 transition-colors duration-300 shadow-md shadow-indigo-900/20">
-                Agregar al Carrito
-              </button>
-            </div>
-          </div>
-        ))}
-      </section>
-    </MainLayout>
-  );
+  return <AppRouter />;
 }
 
 export default App;
