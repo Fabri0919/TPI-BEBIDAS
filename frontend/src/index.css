@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 8%;
+    --foreground: 40 30% 93%;
+    --card: 222 40% 11%;
+    --card-foreground: 40 30% 93%;
+    --popover: 222 40% 11%;
+    --popover-foreground: 40 30% 93%;
+    --primary: 43 72% 47%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 222 30% 16%;
+    --secondary-foreground: 40 30% 93%;
+    --muted: 222 30% 16%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 43 72% 47%;
+    --accent-foreground: 222 47% 8%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 43 30% 25%;
+    --input: 222 30% 16%;
+    --ring: 43 72% 47%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    margin: 0;
+    background-color: #0A1628;
+    color: #F4EFE4;
+  }
+
+  h1,
+  h2 {
+    @apply font-display;
+  }
+}
